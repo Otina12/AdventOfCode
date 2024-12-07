@@ -1,3 +1,6 @@
+from collections import deque
+
+
 file = open(r"2024\Day_07\input.txt", "r")
 input = [line.strip() for line in file.readlines()]
 
@@ -9,25 +12,22 @@ for line in input:
     test_values.append(int(val))
     numbers.append([int(num) for num in nums.split(' ')])
     
-true_equations = set()
-    
-def solve(line_i, i, cur_res):
-    if cur_res > test_values[line_i]:
-        return
-    if i == len(numbers[line_i]):
-        if cur_res == test_values[line_i]:
-            true_equations.add(line_i)
-        return
-    
-    solve(line_i, i + 1, cur_res + numbers[line_i][i])
-    solve(line_i, i + 1, cur_res * numbers[line_i][i])
+res = 0
     
 for line_i in range(len(input)):
-    solve(line_i, 1, numbers[line_i][0])
+    q = deque([numbers[line_i][0]])
+    cur_j = 1
     
-res = 0
-
-for line_i in true_equations:
-    res += test_values[line_i]
+    while cur_j < len(numbers[line_i]):
+        for i in range(len(q)):
+            num = q.popleft()
+            if num > test_values[line_i]:
+                continue
+            q.append(num + numbers[line_i][cur_j])
+            q.append(num * numbers[line_i][cur_j])
+        cur_j += 1
+    
+    if test_values[line_i] in q:
+        res += test_values[line_i]
 
 print(res)

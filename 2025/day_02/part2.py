@@ -2,7 +2,7 @@ import re
 
 puzzle_input = []
 
-with open(fr"2025\day_02\input.txt", "r") as file:
+with open("input.txt", "r") as file:
     text = file.readline()
     ranges = text.split(',')
 

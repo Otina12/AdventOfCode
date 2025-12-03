@@ -1,10 +1,12 @@
-file = open(r"2025\day_01\input.txt", "r")
-input = [line.strip() for line in file.readlines()]
+puzzle_input = []
+
+with open("input.txt", "r") as file:
+    puzzle_input = [line.strip() for line in file.readlines()]
 
 cur_dial = 50
 res = 0
 
-for num_str in input:
+for num_str in puzzle_input:
     dir = num_str[0]
     rotate_by = int(num_str[1:])
 

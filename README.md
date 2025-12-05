@@ -1,3 +1,3 @@
-🎄[Advent of Code](https://adventofcode.com/) is an Advent calendar of small Christmas themed programming puzzles for a variety of skill levels that can be solved in any programming language you like.
+🎄[Advent of Code](https://adventofcode.com/) is an annual Advent calendar of small Christmas themed programming puzzles for a variety of skill levels that can be solved in any programming language you like.
 
 This repository contains my solutions to the puzzles. The solutions are written in Python, and I try to keep the code simple and close to what you would write in most programming languages. No Python shortcuts.
